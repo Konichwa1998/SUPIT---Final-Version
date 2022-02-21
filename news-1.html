@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="stylesNews-1.css">
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+  />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c223c09a19.js" crossorigin="anonymous"></script>
+    <title>News-1</title>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <img class="algebra-logo" src="Algebra-logo.png" alt="algebra-logo">
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home" style="color: orange;"></i> Početna</a></li>
+          <li><a href="AboutUs.html"><i class="far fa-comments" style="color: orange;"></i> O nama</a></li>
+          <li><a class="active"  href="news.html"><i class="fas fa-info-circle" ></i> Novosti</a></li>
+          <li><a href="plan.html"><i class="fas fa-info-circle" style="color: orange;"></i> Nastavni plan</a></li>
+          <li>
+        <a href="#" id="myBtn"><i class="fas fa-envelope" style="color: orange;"></i> Kontakti</a>	
+          </li>
+          </ul>
+          </nav>
+         	<!-- The Modal -->
+				<div id="myModal" class="modal">
+				  <!-- Modal content -->
+				  <div class="modal-content">
+					<span class="close">&times;</span>
+					<form action="http://www.fulek.com/VUA/SUPIT/ContactUs" method="POST">
+            <label for="fname">Ime:</label>
+            <input type="text" id="fname" name="name" placeholder="Your name.." required>
+  
+            <label for="lname">E-mail:</label>
+            <input type="email" id="lname" name="email" placeholder="Your last name.." required>
+  
+            <label for="vaznost">Važnost poruke:</label>
+            <select id="vaznost" name="importance" required>
+              <option value="high">Visoka</option>
+              <option value="low">Niska</option>
+            </select>
+  
+            <label for="subject">Vaša poruka:</label>
+            <textarea id="subject" name="message" placeholder="Napišite nešto.." style="height:200px" requireds></textarea>
+  
+            <input calss="check" type="checkbox" value="Primaj newslatter" name="newsletter"> primaj newslatter</input>
+            <br>
+            <br>
+            <input class="send" type="submit" value="Pošalji">
+            <input class="dont" type="button" value="Odustani" id="cancle">
+           </form>
+				  </div>
+
+				</div>
+      </ul>
+      </nav>
+      <div class="flexbox-container">
+        <div class="flexbox-item flexbox-item-1">
+            <h1 class="stanesic">Student Josip Stanešić 12. je sistemaš svijeta i dobitnik je medalje izvrsnosti.</h1>
+            <img class="image-stanesic" src="novost1.jpg" alt="stanesic">
+        </div>
+        <div class="flexbox-item flexbox-item-2">
+            <h1 class="custom-header">WorldSkills natjecanje - Kazan 2019.</h1>
+              <hr class="custom-hr">
+        </div>
+        <div class="flexbox-item flexbox-item-3">
+            <p class="text-1">  Nakon godinu dana priprema za natjecanje WorldSkills
+                Kazan 2019 na kojem je sudjelovalo 1300 natjecatelja iz
+                cijelog svijeta, trud se itekako isplatio. Josip,
+                student 3. godine preddiplomskog studija sistemskog
+                inženjerstva osvojio je 12. mjesto u vještini IT
+                Networks and System Administration te osvojio medalju
+                izvrsnosti! Čestitke Josipu ali i njegovim/našim
+                mentorima koji su ga pripremali za ovo natjecanje –
+                voditelju studija sistemskog inženjerstva Silviju
+                Papiću, voditelju katedre za operacijske sustave –
+                Vedranu Dakiću i asistentu na studiju sistemskog
+                inženjerstva – Jasminu Redžepagiću. Čestitke i našem
+                studentu 3.godine preddiplomskog studija programskog
+                inženjerstva Josipu Horvatu i mentoru voditelju katedre
+                za programsko inženjerstvo - Goranu Đambiću na osvojenom
+                16.mjestu u vještini IT Software Solutions for Business.
+            </p>
+        </div>
+        <div class="flexbox-item flexbox-item-4">
+          <div class="flexbox-inner-container">
+            <div class="inner-item">
+                <a data-fancybox="gallery" href="novost1.jpg"><img src="novost1.jpg" alt="novost1"></a>
+            </div>
+            <div class="inner-item">
+                <a data-fancybox="gallery" href="galerija2.jpg"><img src="galerija2.jpg" alt="galerija"></a>
+            </div>
+            </div>
+        </div>
+        <div class="flexbox-item flexbox-item-5">
+            <video controls src="worldskills.mp4"></video>
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+          <script src="contact.js"></script>
+</body> 
+</html>

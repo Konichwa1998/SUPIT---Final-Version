@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="stylesNews.css">
+    <script src="https://kit.fontawesome.com/c223c09a19.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars">
+          </i>
+        </label>
+        <img class="algebra-logo" src="Algebra-logo.png" alt="algebra-logo">
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home" style="color: orange;"></i> Početna</a></li>
+          <li><a href="AboutUs.html"><i class="far fa-comments" style="color: orange;"></i> O nama</a></li>
+          <li><a class="active"  href="news.html"><i class="fas fa-info-circle" ></i> Novosti</a></li>
+          <li><a href="plan.html"><i class="fas fa-info-circle" style="color: orange;"></i> Nastavni plan</a></li>
+          <li>
+        <a href="#" id="myBtn"><i class="fas fa-envelope" style="color: orange;"></i> Kontakti</a>			
+		</li>
+    </ul>
+    </nav>
+		<!-- The Modal -->
+				<div id="myModal" class="modal">
+				  <!-- Modal content -->
+				  <div class="modal-content">
+					<span class="close">&times;</span>
+          <form action="http://www.fulek.com/VUA/SUPIT/ContactUs" method="POST">
+            <label for="fname">Ime:</label>
+            <input type="text" id="fname" name="name" placeholder="Your name.." required>
+  
+            <label for="lname">E-mail:</label>
+            <input type="email" id="lname" name="email" placeholder="Your last name.." required>
+  
+            <label for="vaznost">Važnost poruke:</label>
+            <select id="vaznost" name="importance" required>
+              <option value="high">Visoka</option>
+              <option value="low">Niska</option>
+            </select>
+  
+            <label for="subject">Vaša poruka:</label>
+            <textarea id="subject" name="message" placeholder="Napišite nešto.." style="height:200px" requireds></textarea>
+  
+            <input calss="check" type="checkbox" value="Primaj newslatter" name="newsletter"> primaj newslatter</input>
+            <br>
+            <br>
+            <input class="send" type="submit" value="Pošalji">
+            <input class="dont" type="button" value="Odustani" id="cancle">
+           </form>
+				  </div>
+				</div>
+      </ul>
+      </nav>
+      <div class="flexbox-container">
+        <div class="flexbox-item flexbox-item-1">
+            <h1 class="custom-header">Novosti</h1>
+            <hr class="custom-hr">
+        </div>
+        <div class="flexbox-item flexbox-item-2">
+            <div class="flexbox-inner-picture">
+                <div class="circural-picture">
+                    <p><span class="year"><b>28.08.2019</b><br></span><b>Student Josip Stanešić 12. je <br>sistemaš svijeta i dobitnik<br> medalje izvrsnosti na natjecanju WorldSkill Kazan 2019.</b></p>
+                    <a href="news-1.html"><img src="novost1.jpg" alt="novost_prva"></a>
+                </div>
+                <div class="circural-picture">
+                    <p><span class="year"><b>22.07.2019</b><br></span><b>Nagrađujemo izvrsnost:<br>objavljujemo dobitnike<br> stipendijskog natječaja šk.god.<br>2018./2019.</b></p>
+                    <a href="news-2.html"><img src="novost2.jpg" alt="novost_druga"></a>
+                </div>
+                <div class="circural-picture">
+                    <p><span class="year"><b>18.04.2019</b><br></span><b>Digitalno junior ljeto</b></p>
+                    <a href="news-3.html"><img src="novost3.jpg" alt="novost_treca"></a>
+                </div>
+            </div>
+        </div>
+      </div>
+      <footer>
+        <div class="wrap">
+            <h1>BUDI IZVRSTAN U ONOM STO VOLIŠ</h1>
+            <h1 class="zaiskri">ZAISKRI.</h1>
+        </div>
+        <img src="zaiskri-bg.jpg" alt="Zaiskri">
+    </footer> 
+    <script src="contact.js"></script> 
+</body>
+</html>

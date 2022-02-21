@@ -1,0 +1,461 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Explora&family=Italianno&display=swap');
+  
+  nav{
+    background: black;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+  }
+  nav ul{
+    float:right;
+    margin-right: 20px;
+  }
+  nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+  }
+  nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  a.active,a:hover{
+    background: orange;
+    transition: .5s;
+  }
+  .checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+  #check{
+    display: none;
+  }
+  @media (max-width: 952px){
+    label.logo{
+      font-size: 30px;
+      padding-left: 50px;
+    }
+    nav ul li a{
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 858px){
+    .checkbtn{
+      display: block;
+    }
+    ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: #2c3e50;
+      top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+    }
+    nav ul li{
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    nav ul li a{
+      font-size: 20px;
+    }
+    a:hover,a.active{
+      background: none;
+      color: #0082e6;
+    }
+    #check:checked ~ ul{
+      left: 0;
+    }
+  }
+  
+  nav img{
+      height: 70px;
+      padding: 5px;
+  }
+
+  .flexbox-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.flexbox-item{
+    margin: 5px;
+}
+
+.flexbox-item-1{
+    margin: 80px;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    animation:flyin 1s linear;
+}
+
+@media  screen  and (max-width:768px){
+  .flexbox-item-1{
+    margin: 80px;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  }
+
+  @media screen
+  and (min-width:768px)
+  and (max-width:1200px)
+  {
+    .flexbox-item-1{
+      margin: 80px;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  }
+
+.flexbox-item-1 .stanesic{
+  font-size: 2.5vw;
+  text-shadow: 2px 2px black;
+}
+
+.image-stanesic{
+    width: 100%;
+    height: 150%;
+    object-fit: cover;
+}
+
+.flexbox-item-2{
+    height: auto;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+@media  screen  and (max-width:768px){
+  .flexbox-item-2{
+    height: auto;
+    width: auto;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen
+and (min-width:768px)
+and (max-width:1200px)
+{
+  .flexbox-item-2{
+    height: auto;
+    width: auto;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.custom-hr{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid orange;
+}
+
+  .custom-header{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-size: 3em;
+  }
+
+  .flexbox-item-1 h1{
+    position: absolute;
+    font-size: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .flexbox-item-3{
+      padding-top: 20px;
+      width: 100%;
+      height: auto;
+  }
+
+  
+@media  screen  and (max-width:768px){
+  .flexbox-item-3{
+    padding-top: 20px;
+    width: 150%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  }
+
+  @media screen
+and (min-width:768px)
+and (max-width:1200px)
+{
+  .flexbox-item-3{
+    padding-top: 20px;
+    width: 150%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+  .flexbox-item-3 .text-1{
+    padding-bottom: 80px;
+    font-size: 35px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+    text-align: left;
+  }
+
+  .flexbox-item-4{
+    display: flex;
+    padding-top: 20px;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.flexbox-inner-container{
+    display: flex;
+    justify-content: center;
+}
+
+@media  screen  and (max-width:768px){
+  .flexbox-item-4{
+    display: flex;
+    padding-top: 20px;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+}
+.flexbox-inner-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+}
+
+@media screen
+and (min-width:768px)
+and (max-width:1200px)
+{
+  .flexbox-item-4{
+    display: flex;
+    padding-top: 20px;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+}
+.flexbox-inner-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+}
+
+
+.inner-item img{
+    width: 400px;
+    margin: 20px;
+}
+
+.flexbox-item-5{
+    display: flex;
+    padding-top: 20px;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+} 
+
+.flexbox-item-5 video{
+    width: 840px;
+    height: 400px;
+}
+
+
+@media  screen  and (max-width:768px){
+  .flexbox-item-5{
+    display: flex;
+    padding-top: 20px;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    flex-direction: column;
+} 
+.flexbox-item-5 video{
+  width: auto;
+  height: auto;
+}
+}
+
+
+@media screen
+and (min-width:768px)
+and (max-width:1200px)
+{
+  .flexbox-item-5{
+    display: flex;
+    padding-top: 20px;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    flex-direction: column;
+} 
+.flexbox-item-5 video{
+  width:auto;
+}
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  color: black;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.send{
+  background-color: lightskyblue;
+  width: 100px;
+  height: 40px;
+  color: white;
+  border-radius: 10px;
+}
+
+.dont{
+  background-color: red;
+  width: 100px;
+  height: 40px;
+  color: white;
+  border-radius: 10px;
+}
+
+@keyframes flyin {
+  0%   { 
+  transform: translateY(-200%); 		
+  }
+  100% { 
+  transform: translateY(0%); 
+  }
+ }

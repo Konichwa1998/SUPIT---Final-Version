@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+    rel = "stylesheet">
+    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://kit.fontawesome.com/c223c09a19.js" crossorigin="anonymous"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="/anseki-jquery-ui-autocomplete-scroll-ae06062/jquery.ui.autocomplete.scroll.js"></script>
+    <script src="/anseki-jquery-ui-autocomplete-scroll-ae06062/jquery.ui.autocomplete.scroll.min.js"></script>
+    <link rel="stylesheet" href="stylesPlan.css">
+    <title>Plan</title>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <img class="algebra-logo" src="Algebra-logo.png" alt="algebra-logo">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home" style="color: orange;"></i> Početna</a></li>
+            <li><a href="AboutUs.html"><i class="far fa-comments" style="color: orange;"></i> O nama</a></li>
+            <li><a href="news.html"><i class="fas fa-info-circle" style="color: orange;" ></i> Novosti</a></li>
+            <li><a class="active"  href="plan.html"><i class="fas fa-info-circle"></i> Nastavni plan</a></li>
+            <li>
+          <a href="#" id="myBtn"><i class="fas fa-envelope" style="color: orange;"></i> Kontakti</a>			
+          </li>
+      </ul>
+      </nav>
+              <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+          <span class="close">&times;</span>
+          <form action="http://www.fulek.com/VUA/SUPIT/ContactUs" method="POST">
+            <label for="fname">Ime:</label>
+            <input type="text" id="fname" name="name" placeholder="Your name.." required>
+  
+            <label for="lname">E-mail:</label>
+            <input type="email" id="lname" name="email" placeholder="Your last name.." required>
+  
+            <label for="vaznost">Važnost poruke:</label>
+            <select id="vaznost" name="importance" required>
+              <option value="high">Visoka</option>
+              <option value="low">Niska</option>
+            </select>
+  
+            <label for="subject">Vaša poruka:</label>
+            <textarea id="subject" name="message" placeholder="Napišite nešto.." style="height:200px" required></textarea>
+  
+            <input calss="check" type="checkbox" value="Primaj newslatter" name="newsletter"> primaj newslatter</input>
+            <br>
+            <br>
+            <input class="send" type="submit" value="Pošalji">
+            <input class="dont" type="button" value="Odustani" id="cancle">
+           </form>
+          </div>
+        </div>
+        <div class="flexbox-container">
+            <div class="flexbox-item flexbox-item-1">
+                <h1 class="custom-header">Nastavni plan</h1>
+                <hr class="custom-hr">
+            </div>
+            <div class="flexbox-item flexbox-item-2">
+                <div class="inner-flexbox">
+                    <div class="inner-flexbox-item-1">
+                        <div class = "ui-widget">
+                            <p class="custom-header-1">Naziv Kolegija:</p>
+                            <input class="input-1" id = "autocomplete-1">
+                         </div>  
+                    </div>
+                    <div class="inner-flexbox-item-2">
+                        <table id="table">
+                            <thead>
+                                <tr>
+                                    <th style="background-color: orange;">Kolegij</th>
+                                    <th style="background-color: orange;">ECTS</th>
+                                    <th style="background-color: orange;">Sati</th>
+                                    <th style="background-color: orange;">P</th>
+                                    <th style="background-color: orange;">V</th>
+                                    <th style="background-color:orange" colspan="2">Tip</th>
+                                </tr>
+                            </thead> 
+                            <tbody>
+
+                            </tbody> 
+                            <tfoot>
+                                <tr>
+                                    <td><b>UKUPNO</b></td>
+                                    <td id="ects">0</td>
+                                    <td id="hours">0</td>
+                                </tr>
+                            </tfoot>                        
+                        </table>
+                    </div>
+                </div>   
+            </div>
+        </div>
+        <script src="contact.js"></script> 
+        <script>
+            $(function() {
+                $.getJSON('http://www.fulek.com/VUA/SUPIT/GetNastavniPlan', function(data) {
+                    
+                    var predmeti = data;
+                    console.log(predmeti);
+                    $( "#autocomplete-1" ).autocomplete({
+                        maxShowItems: 5,
+                       source: predmeti,
+                       focus: function(event, ui){
+                            event.preventDefault();
+                            $("#autocomplete-1").val(ui.item.label);
+                       },
+                       select: function(event, ui){
+                           event.preventDefault();
+                           $("#autocomplete-1").val(ui.item.label);
+                           $.getJSON('http://www.fulek.com/VUA/supit/GetKolegij/'+(ui.item.value), function(data){
+                            
+                            var _tr = '<tr><td>'+ data.kolegij + '</td><td>' + data.ects + '</td><td>' + data.sati + 
+                                '</td><td>' + data.predavanja + '</td><td>' + data.vjezbe + '</td><td>' + data.tip + '<td><button class="btn-1" type="button">Obriši</button></tr>';
+                            $('tbody').append(_tr)
+                            var table = document.getElementById("table"), sumVal = 0, sumHrs = 0;
+
+                            for(var i = 1; i < table.rows.length-1; i++)
+                            {
+                                sumVal = sumVal + parseInt(table.rows[i].cells[1].innerHTML);
+                                sumHrs = sumHrs + parseInt(table.rows[i].cells[2].innerHTML);
+                            }
+
+                            document.getElementById("ects").innerHTML = sumVal;
+                            document.getElementById("hours").innerHTML = sumHrs;
+                            console.log(sumVal);
+
+                            $('.btn-1').click(function() {
+                            $(this).closest("tr")
+                                        .remove();
+                            
+                            var table = document.getElementById("table"), sumVal = 0, sumHrs = 0;
+
+                            for(var i = 1; i < table.rows.length-1; i++)
+                            {
+                                sumVal = sumVal + parseInt(table.rows[i].cells[1].innerHTML);
+                                sumHrs = sumHrs + parseInt(table.rows[i].cells[2].innerHTML);
+                            }
+
+                            document.getElementById("ects").innerHTML = sumVal;
+                            document.getElementById("hours").innerHTML = sumHrs;                        
+                            });
+                        });
+                       }
+                    });
+                });
+            });
+        </script>                   
+</body>
+<footer>
+    <div class="wrap">
+        <h1>BUDI IZVRSTAN U ONOM STO VOLIŠ</h1>
+        <h1 class="zaiskri">ZAISKRI.</h1>
+    </div>
+    <img src="zaiskri-bg.jpg" alt="Zaiskri">
+</footer> 
+</html>
